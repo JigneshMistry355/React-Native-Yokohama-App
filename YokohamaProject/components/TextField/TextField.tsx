@@ -7,9 +7,11 @@ import textfield_style from "./TextField_Style";
 interface Props {
     secure : boolean;
     placeholder : string;
+    onChangeText : any;
+    value : string;
 }
 
-const TextField : React.FC<Props> = ({secure , placeholder} ) => {
+const TextField : React.FC<Props> = ({secure , placeholder, onChangeText, value} ) => {
     return (
         <SafeAreaView style = {textfield_style.container}>
             <TextInput 
@@ -17,6 +19,8 @@ const TextField : React.FC<Props> = ({secure , placeholder} ) => {
                 placeholder={placeholder} 
                 style={textfield_style.text}
                 placeholderTextColor="white"
+                onChangeText={onChangeText}
+                value={value}
                 />
         </SafeAreaView>
     );

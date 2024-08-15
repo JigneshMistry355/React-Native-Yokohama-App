@@ -5,10 +5,25 @@ import MPinLoginScreen from "../../screens/MPinLoginScreen/MPinLoginScreen";
 import ForgotPasswordScreen from "../../screens/ForgotPasswordScreen/ForgotPasswordScreen";
 import WarrantyRegistrationForm from "../../screens/RegistrationScreen/RegistrationScreen";
 import Dashboard from "../../screens/DashboardScreen/DashboardScreen";
+import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
+
+export type RootStackParamList = {
+  Login: {Name : string};
+  Drawer: {Name : string};
+  MPIN_Login: undefined;
+  Forgot_password: undefined;
+  Registration: undefined;
+  Dashboard: undefined;
+};
+
+export type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+export type ScreenProps<RouteName extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, RouteName>;
+
+
 
 const StackBox:React.FC = () => {
 
-    const Stack = createNativeStackNavigator();
+    const Stack = createNativeStackNavigator<RootStackParamList>();
     return (
      
             <Stack.Navigator initialRouteName='Login'>
